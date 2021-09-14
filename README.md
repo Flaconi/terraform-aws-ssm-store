@@ -68,7 +68,7 @@ module "iam_roles" {
 | name\_prefix | name\_prefix prefixes the given name with a prefix | `string` | `""` | no |
 | overwrite | overwrite defines if we overwrite existing params | `bool` | `true` | no |
 | parameters | A list of dicts with parameter information | <pre>list(object({<br>    name  = string # Name of the policy<br>    type  = string # Defaults to 'var.policy_path' variable if empty<br>    value = string # Defaults to 'var.policy_desc' variable if empty<br>  }))</pre> | `[]` | no |
-| tags | n/a | `map(string)` | `{}` | no |
+| tags | Tags applied to the resources | `map(string)` | `{}` | no |
 
 ## Outputs
 
