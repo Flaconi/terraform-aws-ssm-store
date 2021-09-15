@@ -1,6 +1,7 @@
 variable "tags" {
-  type    = map
-  default = {}
+  description = "Tags applied to the resources"
+  type        = map(string)
+  default     = {}
 }
 
 variable "kms_alias" {
