@@ -51,28 +51,39 @@ module "iam_roles" {
 
 | Name | Version |
 |------|---------|
-| terraform | >= 0.12.26 |
-| aws | >= 3 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.12.26 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 3 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| aws | >= 3 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 3 |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [aws_ssm_parameter.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
+| [aws_kms_key.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/kms_key) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| kms\_alias | kms\_alias sets the kms alias used for SecureString | `string` | `"alias/aws/ssm"` | no |
-| name\_prefix | name\_prefix prefixes the given name with a prefix | `string` | `""` | no |
-| overwrite | overwrite defines if we overwrite existing params | `bool` | `true` | no |
-| parameters | A list of dicts with parameter information | <pre>list(object({<br>    name  = string # Name of the policy<br>    type  = string # Defaults to 'var.policy_path' variable if empty<br>    value = string # Defaults to 'var.policy_desc' variable if empty<br>  }))</pre> | `[]` | no |
-| tags | Tags applied to the resources | `map(string)` | `{}` | no |
+| <a name="input_kms_alias"></a> [kms\_alias](#input\_kms\_alias) | kms\_alias sets the kms alias used for SecureString | `string` | `"alias/aws/ssm"` | no |
+| <a name="input_name_prefix"></a> [name\_prefix](#input\_name\_prefix) | name\_prefix prefixes the given name with a prefix | `string` | `""` | no |
+| <a name="input_overwrite"></a> [overwrite](#input\_overwrite) | overwrite defines if we overwrite existing params | `bool` | `true` | no |
+| <a name="input_parameters"></a> [parameters](#input\_parameters) | A list of dicts with parameter information | <pre>list(object({<br>    name  = string # Name of the policy<br>    type  = string # Defaults to 'var.policy_path' variable if empty<br>    value = string # Defaults to 'var.policy_desc' variable if empty<br>  }))</pre> | `[]` | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | Tags applied to the resources | `map(string)` | `{}` | no |
 
 ## Outputs
 
-No output.
+No outputs.
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
