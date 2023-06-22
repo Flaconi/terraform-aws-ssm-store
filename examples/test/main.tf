@@ -7,7 +7,6 @@ module "iam_roles" {
   kms_alias = "alias/aws/ssm"
 
   name_prefix = "/applications/app1"
-  # overwrite = true
   parameters = [
     {
       name  = "secure"
