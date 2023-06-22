@@ -16,12 +16,6 @@ variable "name_prefix" {
   default     = ""
 }
 
-variable "overwrite" {
-  description = "overwrite defines if we overwrite existing params"
-  type        = bool
-  default     = true
-}
-
 variable "parameters" {
   description = "A list of dicts with parameter information"
   type = list(object({
