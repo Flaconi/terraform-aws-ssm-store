@@ -10,22 +10,19 @@ module "iam_roles" {
   # overwrite = true
   parameters = [
     {
-      name      = "secure"
-      value     = "securevalue"
-      type      = "SecureString"
-      overwrite = true
+      name  = "secure"
+      value = "securevalue"
+      type  = "SecureString"
     },
     {
-      name      = "secure2"
-      value     = "securevalue2"
-      type      = "SecureString"
-      overwrite = true
+      name  = "secure2"
+      value = "securevalue2"
+      type  = "SecureString"
     },
     {
-      name      = "insecure"
-      value     = "insecurevalue"
-      type      = "String"
-      overwrite = true
+      name  = "insecure"
+      value = "insecurevalue"
+      type  = "String"
     },
   ]
 }
