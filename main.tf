@@ -1,5 +1,5 @@
 locals {
-  # create a distrinct map of the different types
+  # create a distinct map of the different types
   parameters_distinct_on_type = { for ka in var.parameters : ka.type => ka... }
 }
 
@@ -13,8 +13,8 @@ resource "aws_ssm_parameter" "this" {
   for_each = { for parameter in var.parameters : parameter.name => parameter }
 
   name   = format("%s%s", var.name_prefix, each.value.name)
-  type   = lookup(each.value, "type", "SecureString")
+  type   = each.value.type
   value  = each.value.value
-  key_id = lookup(each.value, "type", "SecureString") != "SecureString" ? null : concat(data.aws_kms_key.this.*.arn, [""])[0]
+  key_id = each.value.type != "SecureString" ? null : concat(data.aws_kms_key.this.*.arn, [""])[0]
   tags   = var.tags
 }

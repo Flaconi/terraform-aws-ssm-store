@@ -19,9 +19,9 @@ variable "name_prefix" {
 variable "parameters" {
   description = "A list of dicts with parameter information"
   type = list(object({
-    name  = string # Name of the policy
-    type  = string # Defaults to 'var.policy_path' variable if empty
-    value = string # Defaults to 'var.policy_desc' variable if empty
+    name  = string
+    type  = optional(string, "SecureString") # String, StringList or SecureString
+    value = string
   }))
   default = []
 }

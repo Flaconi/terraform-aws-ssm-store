@@ -12,12 +12,10 @@ module "iam_roles" {
     {
       name  = "secure"
       value = "securevalue"
-      type  = "SecureString"
     },
     {
       name  = "secure2"
       value = "securevalue2"
-      type  = "SecureString"
     },
     {
       name  = "insecure"
