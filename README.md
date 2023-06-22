@@ -27,12 +27,11 @@ module "iam_roles" {
     {
       name  = "secure"
       value = "securevalue"
-      type  = "SecureString"
     },
     {
       name  = "secure2"
       value = "securevalue2"
-      type  = "SecureString"
+      type  = "SecureString" # Set explicitly
     },
     {
       name  = "insecure"
@@ -48,7 +47,7 @@ module "iam_roles" {
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 5 |
 
 ## Providers
@@ -74,7 +73,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_kms_alias"></a> [kms\_alias](#input\_kms\_alias) | kms\_alias sets the kms alias used for SecureString | `string` | `"alias/aws/ssm"` | no |
 | <a name="input_name_prefix"></a> [name\_prefix](#input\_name\_prefix) | name\_prefix prefixes the given name with a prefix | `string` | `""` | no |
-| <a name="input_parameters"></a> [parameters](#input\_parameters) | A list of dicts with parameter information | <pre>list(object({<br>    name  = string # Name of the policy<br>    type  = string # Defaults to 'var.policy_path' variable if empty<br>    value = string # Defaults to 'var.policy_desc' variable if empty<br>  }))</pre> | `[]` | no |
+| <a name="input_parameters"></a> [parameters](#input\_parameters) | A list of dicts with parameter information | <pre>list(object({<br>    name  = string<br>    type  = optional(string, "SecureString") # String, StringList or SecureString<br>    value = string<br>  }))</pre> | `[]` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags applied to the resources | `map(string)` | `{}` | no |
 
 ## Outputs
