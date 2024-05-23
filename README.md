@@ -77,7 +77,9 @@ No modules.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_parameter_arns"></a> [parameter\_arns](#output\_parameter\_arns) | Map of parameter name and arn |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
@@ -85,4 +87,4 @@ No outputs.
 
 [MIT License](LICENSE)
 
-Copyright (c) 2023 **[Flaconi GmbH](https://github.com/flaconi)**
+Copyright (c) 2024 **[Flaconi GmbH](https://github.com/flaconi)**
