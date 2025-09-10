@@ -1,7 +1,7 @@
 # Terraform module: AWS SSM Store
 
-[![Lint Status](https://github.com/Flaconi/terraform-aws-ssm-store/actions/workflows/linting.yml/badge.svg?branch=master)](https://github.com/Flaconi/terraform-aws-ssm-store/actions/workflows/linting.yml)
-[![Docs Status](https://github.com/Flaconi/terraform-aws-ssm-store/actions/workflows/terraform-docs.yml/badge.svg?branch=master)](https://github.com/Flaconi/terraform-aws-ssm-store/actions/workflows/terraform-docs.yml)
+[![lint](https://github.com/flaconi/terraform-aws-ssm-store/workflows/lint/badge.svg)](https://github.com/flaconi/terraform-aws-ssm-store/actions?query=workflow%3Alint)
+[![test](https://github.com/flaconi/terraform-aws-ssm-store/workflows/test/badge.svg)](https://github.com/flaconi/terraform-aws-ssm-store/actions?query=workflow%3Atest)
 [![Tag](https://img.shields.io/github/tag/flaconi/terraform-aws-ssm-store.svg)](https://github.com/flaconi/terraform-aws-ssm-store/releases)
 [![Terraform](https://img.shields.io/badge/Terraform--registry-aws--ssm--store-brightgreen.svg)](https://registry.terraform.io/modules/Flaconi/ssm-store/aws/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
