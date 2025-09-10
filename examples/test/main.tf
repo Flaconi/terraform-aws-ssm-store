@@ -1,4 +1,4 @@
-module "iam_roles" {
+module "ssm" {
   source = "../../"
 
   tags = {

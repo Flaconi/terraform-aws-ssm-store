@@ -17,6 +17,6 @@ resource "aws_ssm_parameter" "this" {
   value  = each.value.value
   key_id = each.value.type != "SecureString" ? null : concat(data.aws_kms_key.this.*.arn, [""])[0]
   tags   = var.tags
-  # TODO: remove after migration to aws provider v6.x
+
   overwrite = true
 }
