@@ -1,26 +1,20 @@
 ---
-name: lint
+name: test
 
 on:
   pull_request:
 
 jobs:
-  lint:
-    name: "Lint"
+  test:
+    name: Test
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: False
-      matrix:
-        target:
-          - lint
-          - gen
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
         with:
           fetch-depth: 0
-      - name: "make ${{ matrix.target }}"
+
+      - name: Test
         run: |
           retry() {
             for n in $(seq ${RETRIES}); do
@@ -34,9 +28,6 @@ jobs:
             done;
             return 1;
           }
-
-          retry make "${TARGET}"
-          git diff --quiet || { echo "Build Changes"; git diff; git status; false; }
+          retry make test
         env:
-          TARGET: ${{ matrix.target }}
           RETRIES: 20
