@@ -1,8 +1,9 @@
 # Terraform module: AWS SSM Store
 
-[![Lint Status](https://github.com/Flaconi/terraform-aws-ssm-store/actions/workflows/linting.yml/badge.svg?branch=master)](https://github.com/Flaconi/terraform-aws-ssm-store/actions/workflows/linting.yml)
-[![Docs Status](https://github.com/Flaconi/terraform-aws-ssm-store/actions/workflows/terraform-docs.yml/badge.svg?branch=master)](https://github.com/Flaconi/terraform-aws-ssm-store/actions/workflows/terraform-docs.yml)
+[![lint](https://github.com/flaconi/terraform-aws-ssm-store/workflows/lint/badge.svg)](https://github.com/flaconi/terraform-aws-ssm-store/actions?query=workflow%3Alint)
+[![test](https://github.com/flaconi/terraform-aws-ssm-store/workflows/test/badge.svg)](https://github.com/flaconi/terraform-aws-ssm-store/actions?query=workflow%3Atest)
 [![Tag](https://img.shields.io/github/tag/flaconi/terraform-aws-ssm-store.svg)](https://github.com/flaconi/terraform-aws-ssm-store/releases)
+[![Terraform](https://img.shields.io/badge/Terraform--registry-aws--ssm--store-brightgreen.svg)](https://registry.terraform.io/modules/Flaconi/ssm-store/aws/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 This Terraform module can create an arbitrary number of SSM-keys to store parameters.
@@ -12,8 +13,8 @@ This Terraform module can create an arbitrary number of SSM-keys to store parame
 ### Assumeable roles
 
 ```hcl
-module "iam_roles" {
-  source = "github.com/flaconi/terraform-aws-ssm-store?ref=v1.0.0"
+module "ssm" {
+  source = "github.com/flaconi/terraform-aws-ssm-store?ref=v1.2.0"
 
   tags =  {
    "Created by" = "terraform"
@@ -41,47 +42,89 @@ module "iam_roles" {
 }
 ```
 
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-## Requirements
+<!-- TFDOCS_HEADER_START -->
 
-| Name | Version |
-|------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 5 |
 
+<!-- TFDOCS_HEADER_END -->
+
+<!-- TFDOCS_PROVIDER_START -->
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 5 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | ~> 6.0 |
 
-## Modules
+<!-- TFDOCS_PROVIDER_END -->
 
-No modules.
+<!-- TFDOCS_REQUIREMENTS_START -->
+## Requirements
 
-## Resources
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 6.0 |
 
-| Name | Type |
-|------|------|
-| [aws_ssm_parameter.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
-| [aws_kms_key.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/kms_key) | data source |
+<!-- TFDOCS_REQUIREMENTS_END -->
 
-## Inputs
+<!-- TFDOCS_INPUTS_START -->
+## Required Inputs
 
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| <a name="input_kms_alias"></a> [kms\_alias](#input\_kms\_alias) | kms\_alias sets the kms alias used for SecureString | `string` | `"alias/aws/ssm"` | no |
-| <a name="input_name_prefix"></a> [name\_prefix](#input\_name\_prefix) | name\_prefix prefixes the given name with a prefix | `string` | `""` | no |
-| <a name="input_parameters"></a> [parameters](#input\_parameters) | A list of dicts with parameter information | <pre>list(object({<br>    name  = string<br>    type  = optional(string, "SecureString") # String, StringList or SecureString<br>    value = string<br>  }))</pre> | `[]` | no |
-| <a name="input_tags"></a> [tags](#input\_tags) | Tags applied to the resources | `map(string)` | `{}` | no |
+No required inputs.
 
+## Optional Inputs
+
+The following input variables are optional (have default values):
+
+### <a name="input_tags"></a> [tags](#input\_tags)
+
+Description: Tags applied to the resources
+
+Type: `map(string)`
+
+Default: `{}`
+
+### <a name="input_kms_alias"></a> [kms\_alias](#input\_kms\_alias)
+
+Description: kms\_alias sets the kms alias used for SecureString
+
+Type: `string`
+
+Default: `"alias/aws/ssm"`
+
+### <a name="input_name_prefix"></a> [name\_prefix](#input\_name\_prefix)
+
+Description: name\_prefix prefixes the given name with a prefix
+
+Type: `string`
+
+Default: `""`
+
+### <a name="input_parameters"></a> [parameters](#input\_parameters)
+
+Description: A list of dicts with parameter information
+
+Type:
+
+```hcl
+list(object({
+    name  = string
+    type  = optional(string, "SecureString") # String, StringList or SecureString
+    value = string
+  }))
+```
+
+Default: `[]`
+
+<!-- TFDOCS_INPUTS_END -->
+
+<!-- TFDOCS_OUTPUTS_START -->
 ## Outputs
 
 | Name | Description |
 |------|-------------|
 | <a name="output_parameter_arns"></a> [parameter\_arns](#output\_parameter\_arns) | Map of parameter name and arn |
 
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- TFDOCS_OUTPUTS_END -->
 
 ## License
 
